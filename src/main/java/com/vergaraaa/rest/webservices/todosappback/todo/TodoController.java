@@ -30,9 +30,8 @@ public class TodoController {
         return todoService.findById(id);
     }
 
-    @PostMapping("/users/{username}/todos/{id}")
-    public Todo createUserTodo(@PathVariable String username, @PathVariable int id,
-            @RequestBody Todo todo) {
+    @PostMapping("/users/{username}/todos")
+    public Todo createUserTodo(@PathVariable String username, @RequestBody Todo todo) {
         Todo createdTodo = todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), false);
 
         return createdTodo;
